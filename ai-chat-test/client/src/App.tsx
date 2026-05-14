@@ -31,15 +31,18 @@ function App() {
     setMessages(newMessages);
 
     try {
-      const response = await fetch("http://localhost:5050/api/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://ai-chat-test-ca2t.onrender.com/api/chat",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            messages: newMessages,
+          }),
         },
-        body: JSON.stringify({
-          messages: newMessages,
-        }),
-      });
+      );
 
       const data = await response.json();
 
