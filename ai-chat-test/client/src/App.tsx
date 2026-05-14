@@ -147,18 +147,20 @@ function App() {
           </div>
         )}
         <div className="mt-8 flex flex-col gap-4">
-          {messages.map((msg, index) => (
-            <div
-              key={index}
-              className={`p-4 rounded-2xl whitespace-pre-wrap ${
-                msg.role === "user"
-                  ? "bg-blue-600 self-end"
-                  : "bg-white/10 border border-white/20 self-start"
-              }`}
-            >
-              {msg.content}
-            </div>
-          ))}
+          {messages
+            .map((msg, index) => (
+              <div
+                key={index}
+                className={`p-4 rounded-2xl whitespace-pre-wrap ${
+                  msg.role === "user"
+                    ? "bg-blue-600 self-end"
+                    : "bg-white/10 border border-white/20 self-start"
+                }`}
+              >
+                {msg.content}
+              </div>
+            ))
+            .reverse()}
         </div>
       </section>
     </main>
